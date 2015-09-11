@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/lisa/Desktop/varie/applicazioni/UDOOCoffee2015/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/19.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28">
+        <dex dex="/Users/lisa/Desktop/varie/applicazioni/UDOOCoffee2015/app/build/intermediates/pre-dexed/debug/classes-43d3545043bbf090d21b8934a35fe951a597857d.jar" />
+    </item>
+    <item
+        jar="/Users/lisa/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
+        <dex dex="/Users/lisa/Desktop/varie/applicazioni/UDOOCoffee2015/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0-5ce341770117738f0b752237a0de08d83b60c906.jar" />
+    </item>
+    <item
+        jar="/Users/lisa/Desktop/varie/applicazioni/UDOOCoffee2015/app/build/intermediates/exploded-aar/me.palazzetti/adktoolkit/0.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="41d8bd87158c39705fbbc5a89dd5059499a19eaa">
+        <dex dex="/Users/lisa/Desktop/varie/applicazioni/UDOOCoffee2015/app/build/intermediates/pre-dexed/debug/classes-5ce790521117d73c432facd1d1bb61150a8198ca.jar" />
+    </item>
+    <item
+        jar="/Users/lisa/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="/Users/lisa/Desktop/varie/applicazioni/UDOOCoffee2015/app/build/intermediates/pre-dexed/debug/gson-2.2.4-12fc475190ecd3b610639210582286b7810ee8ca.jar" />
+    </item>
+
+</items>

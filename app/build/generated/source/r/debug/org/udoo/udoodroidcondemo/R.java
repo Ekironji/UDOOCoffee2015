@@ -927,7 +927,8 @@ containing a value of this type.
         public static final int abc_search_view=0x7f030016;
         public static final int abc_simple_decor=0x7f030017;
         public static final int activity_main=0x7f030018;
-        public static final int support_simple_spinner_dropdown_item=0x7f030019;
+        public static final int fragment_main=0x7f030019;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001a;
     }
     public static final class menu {
         public static final int main=0x7f0e0000;
@@ -937,7 +938,6 @@ containing a value of this type.
         public static final int moonwalk=0x7f060001;
         public static final int no=0x7f060002;
         public static final int thanku=0x7f060003;
-        public static final int whohoo=0x7f060004;
     }
     public static final class string {
         public static final int abc_action_bar_home_description=0x7f070000;
@@ -956,7 +956,8 @@ containing a value of this type.
         public static final int action_settings=0x7f07000d;
         public static final int app_name=0x7f07000e;
         public static final int description_image=0x7f07000f;
-        public static final int hello_world=0x7f070010;
+        public static final int hello_blank_fragment=0x7f070010;
+        public static final int hello_world=0x7f070011;
     }
     public static final class style {
         /**  API 11 theme customizations can go here. 
