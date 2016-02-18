@@ -37,8 +37,10 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
         // Inflate the layout for this fragment
-        debugTextView = (TextView) getActivity().findViewById(R.id.textView);
+        debugTextView = (TextView) view.findViewById(R.id.textView);
 //	    debug_tv.setVisibility(View.GONE);
 
         // faceImage = (ImageView) getActivity().findViewById(R.id.face_imageView);
@@ -46,12 +48,12 @@ public class MainFragment extends Fragment {
         animationFadeIn = AnimationUtils.loadAnimation(getActivity(), R.anim.fadein);
         animationFadeOut = AnimationUtils.loadAnimation(getActivity(), R.anim.fadeout);
 
-        voiceButton = (ImageButton) getActivity().findViewById(R.id.voice_imageButton);
+        voiceButton = (ImageButton) view.findViewById(R.id.voice_imageButton);
         voiceButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                ((MainActivity)getActivity()).speak("Good morning sir, would you like a coffee?");
+                ((MainActivity) getActivity()).speak("Good morning sir, would you like a coffee?");
                 new CountDownTimer(3000, 1000) {
 
                     public void onTick(long millisUntilFinished) {
@@ -59,12 +61,13 @@ public class MainFragment extends Fragment {
                     }
 
                     public void onFinish() {
-                        ((MainActivity)getActivity()).startRecognition();
+                        ((MainActivity) getActivity()).startRecognition();
                     }
                 }.start();
             }
         });
-        return inflater.inflate(R.layout.activity_main, container, false);
+//        getActivity().onViewInflated(view);
+        return view;
     }
 
     public void setNewFace(int resourceID){

@@ -45,11 +45,11 @@ public class MainActivity extends Activity {
 	SpeechRecognizer mSpeechRecognizer;
 
 	// speech key
-	private ArrayList<String> yes_strings = new ArrayList<String>(Arrays.asList("yes", "ok", "great", "nice"));
+	private ArrayList<String> yes_strings = new ArrayList<String>(Arrays.asList("yes", "ok", "great", "nice", "yeah"));
 	private ArrayList<String> no_strings = new ArrayList<String>(Arrays.asList("no", "don't"));
 	private ArrayList<String> espresso_strings = new ArrayList<String>(Arrays.asList("espresso", "expresso", "short"));
-	private ArrayList<String> long_strings = new ArrayList<String>(Arrays.asList("american", "long", "longer"));
-	private ArrayList<String> cappuccino_strings = new ArrayList<String>(Arrays.asList("cappuccino"));
+	private ArrayList<String> long_strings = new ArrayList<String>(Arrays.asList("american", "long", "longer", "normal"));
+	private ArrayList<String> cappuccino_strings = new ArrayList<String>(Arrays.asList("cappuccino", "cappuccio", "latte"));
 	private ArrayList<String> chocolate_strings = new ArrayList<String>(Arrays.asList("chocolate", "choco"));
 
 	private ArrayList<String> allwords = new ArrayList<String>();
@@ -87,8 +87,8 @@ public class MainActivity extends Activity {
         mSpeechRecognizer.setRecognitionListener(listener);
 
         // Get last stored values
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        mLastFetchedId = settings.getString("lastId", "1");
+        /*SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        mLastFetchedId = settings.getString("lastId", "1");*/
 
         tts = new TextToSpeech(getApplicationContext(),
         	      new TextToSpeech.OnInitListener() {
@@ -96,7 +96,7 @@ public class MainActivity extends Activity {
 	            public void onInit(int status) {
 	            	if (status == TextToSpeech.SUCCESS) {
 
-	                    int result = tts.setLanguage(Locale.US);
+	                    int result = tts.setLanguage(Locale.UK);
 //	                    tts.setPitch(0.7F);
 
 	                    if (result == TextToSpeech.LANG_MISSING_DATA) {
@@ -215,7 +215,7 @@ public class MainActivity extends Activity {
             }
 
             public void onFinish() {
-            	tts.speak("enjoy sir, the weather today is exelent, 15 grades today in Turin. Here are the news for you", TextToSpeech.QUEUE_FLUSH, null);
+            	tts.speak("Ok sir, enjoy your espresso.", TextToSpeech.QUEUE_FLUSH, null);
             	new CountDownTimer(5000, 1000) {
 
                     public void onTick(long millisUntilFinished) {
@@ -223,8 +223,7 @@ public class MainActivity extends Activity {
                     }
 
                     public void onFinish() {
-                    	Intent launchIntent = getPackageManager().getLaunchIntentForPackage("flipboard.app");
-            		    startActivity(launchIntent);
+                    	returnToNormalState(1000);
                     }
                  }.start();
             }
@@ -243,7 +242,7 @@ public class MainActivity extends Activity {
             }
 
             public void onFinish() {
-            	tts.speak("enjoy sir, the weather today is exelent, 15 grades today in Turin. Here are the news for you", TextToSpeech.QUEUE_FLUSH, null);
+            	tts.speak("Ok sir, enjoy your long coffee.", TextToSpeech.QUEUE_FLUSH, null);
             	new CountDownTimer(5000, 1000) {
 
                     public void onTick(long millisUntilFinished) {
@@ -251,8 +250,7 @@ public class MainActivity extends Activity {
                     }
 
                     public void onFinish() {
-                    	Intent launchIntent = getPackageManager().getLaunchIntentForPackage("flipboard.app");
-            		    startActivity(launchIntent);
+                    	returnToNormalState(1000);
                     }
                  }.start();
             }
@@ -271,7 +269,7 @@ public class MainActivity extends Activity {
             }
 
             public void onFinish() {
-            	tts.speak("enjoy sir, the weather today is exelent, 15 grades today in Turin. Here are the news for you", TextToSpeech.QUEUE_FLUSH, null);
+            	tts.speak("Ok sir, enjoy your cappuccino", TextToSpeech.QUEUE_FLUSH, null);
             	new CountDownTimer(5000, 1000) {
 
                     public void onTick(long millisUntilFinished) {
@@ -279,8 +277,7 @@ public class MainActivity extends Activity {
                     }
 
                     public void onFinish() {
-                    	Intent launchIntent = getPackageManager().getLaunchIntentForPackage("flipboard.app");
-            		    startActivity(launchIntent);
+                    	returnToNormalState(1000);
                     }
                  }.start();
             }
@@ -299,7 +296,7 @@ public class MainActivity extends Activity {
             }
 
             public void onFinish() {
-            	tts.speak("enjoy sir, the weather today is exelent, 15 grades today in Turin. Here are the news for you", TextToSpeech.QUEUE_FLUSH, null);
+            	tts.speak("Ok sir, enjoy your chocolate", TextToSpeech.QUEUE_FLUSH, null);
             	new CountDownTimer(5000, 1000) {
 
                     public void onTick(long millisUntilFinished) {
@@ -307,8 +304,7 @@ public class MainActivity extends Activity {
                     }
 
                     public void onFinish() {
-                    	Intent launchIntent = getPackageManager().getLaunchIntentForPackage("flipboard.app");
-            		    startActivity(launchIntent);
+                    	returnToNormalState(1000);
                     }
                  }.start();
             }
@@ -340,7 +336,7 @@ public class MainActivity extends Activity {
 
             public void onFinish() {
             	Log.i(TAG, "returnToNormalState");
-                mMainFragment.setNewFace(R.drawable.normal);
+                mMainFragment.setVoiceButtonBackgroundResource(R.drawable.caffe_prima);
             }
          }.start();
     }
@@ -359,7 +355,7 @@ public class MainActivity extends Activity {
         intent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE, this.getPackageName());
     	
         mSpeechRecognizer.startListening(intent);        
-        new CountDownTimer(4000, 1000) {
+        new CountDownTimer(5000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 //do nothing, just let it tick
@@ -368,7 +364,7 @@ public class MainActivity extends Activity {
             public void onFinish() {
             	Log.i(TAG, "stop countdown");
             	mSpeechRecognizer.stopListening();
-            	mMainFragment.setVoiceButtonBackgroundResource(R.drawable.nose_up);
+            	mMainFragment.setVoiceButtonBackgroundResource(R.drawable.caffe_prima);
             }
          }.start();
     }
@@ -411,7 +407,7 @@ public class MainActivity extends Activity {
         @Override
         public void onReadyForSpeech(Bundle params) {
                 Log.d("Speech", "onReadyForSpeech");
-                mMainFragment.setVoiceButtonBackgroundResource(R.drawable.nose_down);
+                mMainFragment.setVoiceButtonBackgroundResource(R.drawable.caffe_seconda);
         }
         
 
